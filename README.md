@@ -42,6 +42,6 @@
 **1.不想要自动粘贴**
 
 在alfred插件中选择粘贴这个环节
-![](http://oobu4m7ko.bkt.clouddn.com/1519546487.png?imageMogr2/thumbnail/!70p)
+![](http://oobu4m7ko.bkt.clouddn.com/1519546487.png?imageMogr2/thumbnail/!100p)
 然后勾掉自动粘贴即可.
-![](http://oobu4m7ko.bkt.clouddn.com/1519546513.png?imageMogr2/thumbnail/!70p)
+![](http://oobu4m7ko.bkt.clouddn.com/1519546513.png?imageMogr2/thumbnail/!100p)
