@@ -34,8 +34,9 @@
 
 ### 演示
 
-![](http://oobu4m7ko.bkt.clouddn.com/201811111111.gif)
-
+<p>
+<img src="http://oobu4m7ko.bkt.clouddn.com/201811111111.gif" alt="" data-canonical-src="http://oobu4m7ko.bkt.clouddn.com/201811111111.gif" style="max-width:100%;">
+</p>
 
 ### 其他问题
 
