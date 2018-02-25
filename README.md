@@ -28,7 +28,7 @@
 
 也由于json外置,如果你觉得workflow添加太麻烦的话,直接改这个json,添加对应的数据即可.
 
-![](http://oobu4m7ko.bkt.clouddn.com/1519546315.png?imageMogr2/thumbnail/!100p)
+![](http://oobu4m7ko.bkt.clouddn.com/1519546315.png)
 
 
 
@@ -46,4 +46,5 @@
 ![](http://oobu4m7ko.bkt.clouddn.com/1519546487.png)
 
 然后勾掉自动粘贴即可.
+
 ![](http://oobu4m7ko.bkt.clouddn.com/1519546513.png)
