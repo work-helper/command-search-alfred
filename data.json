@@ -1,0 +1,22 @@
+[
+  {
+    "key": "npm-common",
+    "values": [
+      {
+        "cmd": "npm config set registry https://registry.npm.taobao.org",
+        "remark": "npm配置淘宝源地址"
+      }
+    ],
+    "remark": "npm通用命令"
+  },
+  {
+    "key": "git-common",
+    "values": [
+      {
+        "cmd": "git branch -r | sed 's/origin///g' | grep '/' | xargs git push origin --delete",
+        "remark": "git批量删除远程分支"
+      }
+    ],
+    "remark": "git通用命令"
+  }
+]
