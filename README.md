@@ -34,9 +34,8 @@
 
 ### 演示
 
-<p>
-<img src="http://oobu4m7ko.bkt.clouddn.com/201811111111.gif" alt="" data-canonical-src="http://oobu4m7ko.bkt.clouddn.com/201811111111.gif" style="max-width:100%;">
-</p>
+![](https://github.com/mrdear/Command_Search/blob/master/img/yulan.gif)
+
 
 ### 其他问题
 
