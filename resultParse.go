@@ -8,7 +8,7 @@ import (
 
 var openItem = Item{
 	Autocomplete: "open",
-	Uid:          "99999",
+	Uid:          "-1",
 	Arg:          "open",
 	Title:        "打开命令配置",
 	Subtitle:     "该命令会打开当前文件",

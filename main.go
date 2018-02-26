@@ -28,6 +28,7 @@ func main() {
 	var allCommands []Command
 	json.Unmarshal(bytes, &allCommands)
 	if len(allCommands) == 0 {
+		parseCommands(allCommands)
 		return
 	}
 

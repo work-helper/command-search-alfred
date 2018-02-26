@@ -2,19 +2,24 @@ package main
 
 import (
 	"strings"
+	"regexp"
 )
 
+var re = regexp.MustCompile("[-_\\s]")
+
 func searchKeys(searchKey string,allCommands []Command) {
+	searchKey = re.ReplaceAllString(searchKey,"")
 	// 查找
 	var matchCommands []Command
 	for _, v := range allCommands {
 
 		//以key开头
-		if strings.HasPrefix(v.Key, searchKey) {
+		key := re.ReplaceAllString(v.Key, "")
+		if strings.HasPrefix(key, searchKey) {
 			matchCommands = append(matchCommands, v)
 		}
 
-		if strings.EqualFold(v.Key, searchKey) {
+		if strings.EqualFold(key, searchKey) {
 			// 找到了则直接处理
 			parseCommandValue(&v)
 			return
