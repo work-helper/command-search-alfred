@@ -1,26 +1,39 @@
 # Alfred一款命令搜索workflow
 
 ### 介绍
-日常开发中要记住的一些长命令太多,打起来很费事,因此使用workflow帮助管理命令.
+日常开发中要记住的一些长命令或者网址太多,打起来很费事,因此使用workflow帮助管理命令.
 
 该workflow把命令分为key -> values形式,如下所示,key属于大分类,匹配到key后会显示其下全部value.
 ```json
+[
   {
-    "key":"git-common",
-    "values":[
+    "key": "搜索引擎",
+    "values": [
       {
-        "cmd":"git branch -r | sed 's/origin\///g' | grep '/' | xargs git push origin --delete",
-        "remark":"git批量删除远程分支"
+        "cmd": "https://baidu.com",
+        "remark": "百度地址"
       }
     ],
-    "remark":"git通用命令"
+    "remark": "搜索引擎"
+  },
+  {
+    "key": "git-common",
+    "values": [
+      {
+        "cmd": "git branch -r | sed 's/origin///g' | grep '/' | xargs git push origin --delete",
+        "remark": "git批量删除远程分支"
+      }
+    ],
+    "remark": "git通用命令"
   }
+]
 ```
 
 
 主要功能:
 1. cmd(触发关键词)->搜索key->选择value->复制到粘贴板(可以自动粘贴)
-2. cmd(触发关键词)->open->选择打开命令配置->调用你喜欢的编辑器打开命令配置的json(主要是alfred添加数据不太好用)
+2. cmd(触发关键词)->搜索key->选择value-> 判断是网址 -> 调用浏览器打开
+3. cmd(触发关键词)->open->选择打开命令配置->调用你喜欢的编辑器打开命令配置的json(主要是alfred添加数据不太好用)
 
 
 ### 数据保存
