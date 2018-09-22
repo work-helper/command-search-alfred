@@ -1,10 +1,10 @@
 package main
 
 import (
+	"command-search-alfred/action"
+	"command-search-alfred/util"
 	"flag"
-	"os"
-	"encoding/json"
-	"io/ioutil"
+	"strings"
 )
 
 const defaultDataPath = "./data.json"
@@ -15,42 +15,16 @@ func main() {
 	dataPath := flag.String("p", defaultDataPath, "data source")
 	flag.Parse()
 
-	// 读取json文件
-	if !PathExist(*dataPath) {
-		_, e := os.Create(*dataPath)
-		if e != nil {
-			panic(e)
-		}
-	}
-	bytes, e := ioutil.ReadFile(*dataPath)
-	checkError(e)
-	//转换命令
-	var allCommands []Command
-	json.Unmarshal(bytes, &allCommands)
-	if len(allCommands) == 0 {
-		parseCommands(allCommands)
+	projects := util.ReadProjects(*dataPath)
+
+	if len(projects) == 0 || 0 == strings.Compare("open", *searchKey) {
+		projects = projects[:0]
+		action.ParseCommands(projects, true)
 		return
 	}
 
 	// 搜索key不为空时则搜索
 	if len(*searchKey) != 0 {
-		searchKeys(*searchKey, allCommands)
+		action.SearchKeys(*searchKey, projects)
 	}
-}
-
-func checkError(e error) {
-	if e != nil {
-		panic(e)
-	}
-}
-
-/**
- * 检查文件夹是否存在
- */
-func PathExist(_path string) bool {
-	_, err := os.Stat(_path)
-	if err != nil && os.IsNotExist(err) {
-		return false
-	}
-	return true
 }

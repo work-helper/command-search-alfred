@@ -1,56 +1,59 @@
-package main
+package action
 
 import (
-	"strconv"
-	"fmt"
+	"command-search-alfred/model"
 	"encoding/xml"
+	"fmt"
+	"strconv"
 )
 
-var openItem = Item{
+var openItem = model.Item{
 	Autocomplete: "open",
-	Uid:          "-1",
+	Uid:          "9999999",
 	Arg:          "open",
 	Title:        "打开命令配置",
 	Subtitle:     "该命令会打开当前文件",
-	Icon: "./icon.png",
+	Icon:         "./icon.png",
 }
 
-func parseCommands(commands []Command) {
-	var items = make([]Item,0,len(commands))
+func ParseCommands(commands []model.Project, isAppendOpen bool) {
+	var items = make([]model.Item, 0, len(commands))
 	for index, v := range commands {
-		var item = Item{
+		var item = model.Item{
 			Autocomplete: v.Key,
 			Uid:          strconv.Itoa(index),
 			Arg:          "",
 			Title:        v.Key,
 			Subtitle:     v.Remark,
-			Icon: "./icon.png",
+			Icon:         "./icon.png",
 		}
 		items = append(items, item)
 	}
 
+	if isAppendOpen {
+		items = append(items, openItem)
+	}
 
-	var result = Items{Items: append(items,openItem)}
+	var result = model.Items{Items: items}
 	marshal, _ := xml.Marshal(result)
 	fmt.Println(string(marshal))
 }
 
-func parseCommandValue(command *Command) {
-	var items = make([]Item,0,len(command.Values))
+func parseCommandValue(command *model.Project) {
+	var items = make([]model.Item, 0, len(command.Values))
 	for index, v := range command.Values {
-		var item = Item{
+		var item = model.Item{
 			Autocomplete: command.Key,
 			Uid:          strconv.Itoa(index),
 			Arg:          v.Cmd,
 			Title:        v.Remark,
 			Subtitle:     v.Cmd,
-			Icon: "./icon.png",
+			Icon:         "./icon.png",
 		}
 		items = append(items, item)
 	}
-	var result = Items{Items: items}
+	var result = model.Items{Items: items}
 
 	marshal, _ := xml.Marshal(result)
 	fmt.Println(string(marshal))
 }
-

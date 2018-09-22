@@ -1,17 +1,18 @@
-package main
+package action
 
 import (
-	"strings"
+	"command-search-alfred/model"
 	"regexp"
+	"strings"
 )
 
 var re = regexp.MustCompile("[-_\\s]")
 
-func searchKeys(searchKey string,allCommands []Command) {
-	searchKey = re.ReplaceAllString(searchKey,"")
+func SearchKeys(searchKey string, projects []model.Project) {
+	searchKey = re.ReplaceAllString(searchKey, "")
 	// 查找
-	var matchCommands []Command
-	for _, v := range allCommands {
+	var matchCommands []model.Project
+	for _, v := range projects {
 
 		//以key开头
 		key := re.ReplaceAllString(v.Key, "")
@@ -27,7 +28,9 @@ func searchKeys(searchKey string,allCommands []Command) {
 	}
 	//没找到完全匹配的则对部分匹配的处理
 	if len(matchCommands) == 0 {
-		matchCommands = allCommands
+		matchCommands = projects
+		ParseCommands(matchCommands, true)
+	} else {
+		ParseCommands(matchCommands, false)
 	}
-	parseCommands(matchCommands)
 }

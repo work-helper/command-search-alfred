@@ -1,10 +1,10 @@
 [
   {
-    "key": "npm-common",
+    "key": "搜索引擎",
     "values": [
       {
-        "cmd": "npm config set registry https://registry.npm.taobao.org",
-        "remark": "npm配置淘宝源地址"
+        "cmd": "https://baidu.com",
+        "remark": "百度地址"
       }
     ],
     "remark": "npm通用命令"
