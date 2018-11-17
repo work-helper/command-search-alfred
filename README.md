@@ -14,7 +14,7 @@
     "key": "搜索引擎",
     "values": [
       {
-        "cmd": "https://baidu.com",
+        "cmd": "https://www.baidu.com/s?wd={clip_0}", 
         "remark": "百度地址"
       }
     ],
@@ -54,6 +54,7 @@
 2. cmd(触发关键词)->搜索key->选择value-> 判断是网址 -> 调用浏览器打开
 3. cmd(触发关键词)->open->选择打开命令配置->调用你喜欢的编辑器打开命令配置的json(主要是alfred添加数据不太好用)
 
+支持获取粘贴板，使`{clip_0}`来代替，最终渲染时会自动进行粘贴板数据替换。比如我选择了`https://www.baidu.com/s?wd={clip_0}`，此时我粘贴板数据假设为 `张三`，那么最终打开浏览器的地址为`https://www.baidu.com/s?wd=张三`。
 
 ### 数据保存
 该插件对应json命令数据都是外置的(便于云端保存,丢到同步盘中即可),因此自己指定一个路径后,以参数形式传入即可.
@@ -63,7 +64,6 @@
 ![](http://oobu4m7ko.bkt.clouddn.com/1519546315.png)
 
 
-
 ### 演示
 
 ![](https://github.com/mrdear/Command_Search/blob/master/img/yulan.gif)
@@ -71,7 +71,7 @@
 
 ### 其他问题
 
-**1.不想要自动粘贴**
+#### 不想要自动粘贴
 
 在alfred插件中选择粘贴这个环节
 
@@ -81,8 +81,6 @@
 
 ![](http://oobu4m7ko.bkt.clouddn.com/1519546513.png)
 
-### 更新记录
-
-#### 2018.02.26
-
-关键词匹配去除`-_空白`特殊字符
+#### 更多变量支持
+变量的支持依赖于alfred，可以在自己的脚本中配置多个变量，在后面使用`Utils`工具替换。
+![](http://imgblog.mrdear.cn/1539613678.png?imageMogr2/thumbnail/!100p)
