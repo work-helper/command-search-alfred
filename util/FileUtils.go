@@ -4,8 +4,10 @@ import (
 	"command-search-alfred/model"
 	"encoding/json"
 	"fmt"
+	"gopkg.in/yaml.v2"
 	"io/ioutil"
 	"os"
+	"strings"
 )
 
 func ReadProjects(dataPath string) []model.Project {
@@ -19,7 +21,11 @@ func ReadProjects(dataPath string) []model.Project {
 	}
 	//转换命令
 	var projects []model.Project
-	json.Unmarshal(bytes, &projects)
+	if strings.HasSuffix(dataPath, "json") {
+		_ = json.Unmarshal(bytes, &projects)
+	} else {
+		_ = yaml.Unmarshal(bytes, &projects)
+	}
 	return projects
 }
 

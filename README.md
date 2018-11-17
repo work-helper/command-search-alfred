@@ -4,6 +4,10 @@
 日常开发中要记住的一些长命令或者网址太多,打起来很费事,因此使用workflow帮助管理命令.
 
 该workflow把命令分为key -> values形式,如下所示,key属于大分类,匹配到key后会显示其下全部value.
+
+目前支持json以及yaml格式配置
+
+**json格式**
 ```json
 [
   {
@@ -29,6 +33,21 @@
 ]
 ```
 
+**yaml格式**
+
+```yaml
+- key: 搜索引擎
+  remark: 搜索引擎
+  values:
+  - cmd: 'https://baidu.com'
+    remark: 百度地址
+- key: git-common
+  remark: git通用命令
+  values:
+  - cmd: git branch -r | sed 's/origin///g' | grep '/' | xargs git push origin --delete
+    remark: git批量删除远程分支}
+
+```
 
 主要功能:
 1. cmd(触发关键词)->搜索key->选择value->复制到粘贴板(可以自动粘贴)

@@ -6,17 +6,17 @@ import (
 )
 
 type Project struct {
-	Key string `json:"key"`
+	Key string
 
-	Values []Value `json:"values"`
+	Values []Value
 
-	Remark string `json:"remark"`
+	Remark string
 }
 
 type Value struct {
-	Cmd string `json:"cmd"`
+	Cmd string
 
-	Remark string `json:"remark"`
+	Remark string
 }
 
 // 结果
