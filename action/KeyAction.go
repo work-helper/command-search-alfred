@@ -1,7 +1,7 @@
 package action
 
 import (
-	"command-search-alfred/model"
+	"github.com/work-helper/command-search-alfred/model"
 	"regexp"
 	"strings"
 )
@@ -12,12 +12,15 @@ func SearchKeys(searchKey string, projects []model.Project) {
 	searchKey = re.ReplaceAllString(searchKey, "")
 	// 查找
 	var matchCommands []model.Project
+	var noMatchCommands []model.Project
 	for _, v := range projects {
 
 		//以key开头
 		key := re.ReplaceAllString(v.Key, "")
 		if strings.HasPrefix(key, searchKey) {
 			matchCommands = append(matchCommands, v)
+		} else {
+			noMatchCommands = append(noMatchCommands, v)
 		}
 
 		if strings.EqualFold(key, searchKey) {
@@ -31,6 +34,7 @@ func SearchKeys(searchKey string, projects []model.Project) {
 		matchCommands = projects
 		ParseCommands(matchCommands, true)
 	} else {
+		matchCommands = append(matchCommands, noMatchCommands...)
 		ParseCommands(matchCommands, false)
 	}
 }

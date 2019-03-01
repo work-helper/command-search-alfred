@@ -1,9 +1,9 @@
 package main
 
 import (
-	"command-search-alfred/action"
-	"command-search-alfred/util"
 	"flag"
+	"github.com/work-helper/command-search-alfred/action"
+	"github.com/work-helper/command-search-alfred/util"
 	"strings"
 )
 

@@ -1,9 +1,9 @@
 package util
 
 import (
-	"command-search-alfred/model"
 	"encoding/json"
 	"fmt"
+	"github.com/work-helper/command-search-alfred/model"
 	"gopkg.in/yaml.v2"
 	"io/ioutil"
 	"os"

@@ -1,9 +1,9 @@
 package action
 
 import (
-	"command-search-alfred/model"
 	"encoding/xml"
 	"fmt"
+	"github.com/work-helper/command-search-alfred/model"
 	"strconv"
 )
 
