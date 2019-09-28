@@ -39,7 +39,7 @@
 - key: 搜索引擎
   remark: 搜索引擎
   values:
-  - cmd: 'https://baidu.com'
+  - cmd: https://www.baidu.com/s?wd={clip_0}
     remark: 百度地址
 - key: git-common
   remark: git通用命令
