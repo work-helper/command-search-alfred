@@ -18,10 +18,9 @@ var openItem = model.Item{
 
 func ParseCommands(commands []model.Project, isAppendOpen bool) {
 	var items = make([]model.Item, 0, len(commands))
-	for index, v := range commands {
+	for _, v := range commands {
 		var item = model.Item{
 			Autocomplete: v.Key,
-			Uid:          strconv.Itoa(index),
 			Arg:          "",
 			Title:        v.Key,
 			Subtitle:     v.Remark,
