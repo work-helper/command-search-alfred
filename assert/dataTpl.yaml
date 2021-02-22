@@ -1,0 +1,15 @@
+- key: ss
+  remark: 搜索引擎
+  tags: sousuo,baidu,duoji
+  values:
+    - cmd: https://www.baidu.com/s?wd={clip_0}
+      remark: 百度地址
+    - cmd: https://www.dogedoge.com/results?q={clip_0}
+      remark: 多吉搜索
+- key: cc
+  remark: 通用命令
+  values:
+    - cmd: git branch -r | sed 's/origin///g' | grep '/' | xargs git push origin --delete
+      remark: git批量删除远程分支}
+    - cmd: npm install --registry=http://registry.npm.alibaba-inc.com {clip_0}
+      remark: npm使用淘宝源安装
